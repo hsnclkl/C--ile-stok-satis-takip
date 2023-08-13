@@ -44,7 +44,7 @@ namespace prof.Forms
                 return;
             }
             bagla.Open();
-            SqlCommand komut = new SqlCommand("DELETE FROM rapor WHERE numara=@plaka", bagla);
+            SqlCommand komut = new SqlCommand("DELETE FROM rapor WHERE plaka= @plaka", bagla);
             komut.Parameters.AddWithValue("@plaka", textBox1.Text);
             komut.ExecuteNonQuery();
             verilerigöster("Select * from rapor");
@@ -63,7 +63,7 @@ namespace prof.Forms
                     {
                         using (XLWorkbook workbook = new XLWorkbook())
                         {
-                            DataTable dt = (DataTable)dataGridView1.DataSource; // Bu satırı ekledik
+                            DataTable dt = (DataTable)dataGridView1.DataSource; 
                             if (dt != null)
                             {
                                 workbook.Worksheets.Add(dt, "Rapor");

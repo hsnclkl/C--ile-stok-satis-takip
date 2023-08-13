@@ -28,7 +28,7 @@ namespace prof.Forms
                 return;
             }
             bagla.Open();
-            SqlCommand komut = new SqlCommand("Insert into stoku (plaka,model,renk,tarih,alisfiyat,marka,masraflar) values (@plaka,@model,@renk,@tarih,@alisfiyat,@marka,@masraflar)", bagla);
+            SqlCommand komut = new SqlCommand("Insert into stoku (plaka,model,renk,tarih,alisfiyat,marka,masraflar,tel) values (@plaka,@model,@renk,@tarih,@alisfiyat,@marka,@masraflar,@tel)", bagla);
             komut.Parameters.AddWithValue("@plaka", textBox1.Text);
             komut.Parameters.AddWithValue("@model", textBox2.Text);
             komut.Parameters.AddWithValue("@renk", textBox3.Text);
@@ -36,6 +36,7 @@ namespace prof.Forms
             komut.Parameters.AddWithValue("@alisfiyat", textBox5.Text);
             komut.Parameters.AddWithValue("@marka", textBox6.Text);
             komut.Parameters.AddWithValue("@masraflar", textBox7.Text);
+            komut.Parameters.AddWithValue("@tel", textBox8.Text);
             komut.ExecuteNonQuery();
             bagla.Close();
             MessageBox.Show("Başarıyla stok eklendi");
@@ -47,6 +48,7 @@ namespace prof.Forms
             textBox5.Clear();
             textBox6.Clear();
             textBox7.Clear();
+            textBox8.Clear();
         }
 
         private void stok_Load(object sender, EventArgs e)
